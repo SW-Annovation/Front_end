@@ -13,7 +13,8 @@ class Subject {
     ];
   }
 
-  static void showSubjectPicker(BuildContext context, List<Subject> subjects, Function(Subject) onSelect) {
+  static void showSubjectPicker(BuildContext context, List<Subject> subjects,
+      Function(Subject) onSelect) {
     showDialog(
       context: context,
       builder: (BuildContext context) {
@@ -21,13 +22,15 @@ class Subject {
           title: Text("과목 선택"),
           content: SingleChildScrollView(
             child: ListBody(
-              children: subjects.map((subject) => ListTile(
-                title: Text(subject.name),
-                onTap: () {
-                  onSelect(subject);
-                  Navigator.of(context).pop();
-                },
-              )).toList()
+              children: subjects
+                  .map((subject) => ListTile(
+                        title: Text(subject.name),
+                        onTap: () {
+                          onSelect(subject);
+                          Navigator.of(context).pop();
+                        },
+                      ))
+                  .toList()
                 ..add(ListTile(
                   title: Text("과목 추가"),
                   onTap: () {
@@ -42,8 +45,9 @@ class Subject {
     );
   }
 
-  static void _showAddSubjectDialog(BuildContext context, List<Subject> subjects, Function(Subject) onSelect) {
-    TextEditingController _subjectController = TextEditingController();
+  static void _showAddSubjectDialog(BuildContext context,
+      List<Subject> subjects, Function(Subject) onSelect) {
+    TextEditingController subjectController = TextEditingController();
 
     showDialog(
       context: context,
@@ -51,7 +55,7 @@ class Subject {
         return AlertDialog(
           title: Text("추가할 과목을 입력하세요"),
           content: TextField(
-            controller: _subjectController,
+            controller: subjectController,
             decoration: InputDecoration(hintText: "과목명"),
           ),
           actions: <Widget>[
@@ -64,7 +68,7 @@ class Subject {
             TextButton(
               child: Text('추가'),
               onPressed: () {
-                String newSubjectName = _subjectController.text;
+                String newSubjectName = subjectController.text;
                 if (newSubjectName.isNotEmpty) {
                   subjects.add(Subject(name: newSubjectName));
                   onSelect(Subject(name: newSubjectName));
@@ -78,4 +82,3 @@ class Subject {
     );
   }
 }
-

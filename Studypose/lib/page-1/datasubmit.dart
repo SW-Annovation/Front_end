@@ -10,7 +10,8 @@ String formatDurationToIso8601(Duration duration) {
   return "PT${hours}H${minutes}M${seconds}S";
 }
 
-Future<void> submitTimeToServer(String serverUrl, String subject, Duration accumulatedTime) async {
+Future<void> submitTimeToServer(
+    String serverUrl, String subject, Duration accumulatedTime) async {
   var url = Uri.parse('$serverUrl/api/v1/study-log/loginX/add-study-time');
   var iso8601Time = formatDurationToIso8601(accumulatedTime);
 
@@ -32,7 +33,8 @@ Future<void> submitTimeToServer(String serverUrl, String subject, Duration accum
   }
 }
 
-Future<void> submitTodoToServer(String serverUrl, String description, String dueDate, bool completed) async {
+Future<void> submitTodoToServer(String serverUrl, String description,
+    String dueDate, bool completed) async {
   var url = Uri.parse('$serverUrl/api/v1/todolist/loginX/add');
 
   var response = await http.post(
