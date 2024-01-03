@@ -35,7 +35,7 @@ class StopwatchState {
     required this.seconds,
     this.isRunning = false,
     this.accumulatedSeconds = 0,
-    this.selectedSubjectName="",
+    this.selectedSubjectName = "",
   });
 
   String get formattedTime {
@@ -63,7 +63,8 @@ class StopwatchState {
       seconds: seconds ?? this.seconds,
       isRunning: isRunning ?? this.isRunning,
       accumulatedSeconds: accumulatedSeconds ?? this.accumulatedSeconds,
-      selectedSubjectName: selectedSubjectName ?? this.selectedSubjectName, // 추가
+      selectedSubjectName:
+          selectedSubjectName ?? this.selectedSubjectName, // 추가
     );
   }
 }
@@ -99,7 +100,8 @@ class StopwatchBloc extends Bloc<StopwatchEvent, StopwatchState> {
         _pauseTimer();
         return;
       }
-      emit(state.copyWith(seconds: newSeconds, accumulatedSeconds: newAccumulatedSeconds));
+      emit(state.copyWith(
+          seconds: newSeconds, accumulatedSeconds: newAccumulatedSeconds));
     });
     emit(state.copyWith(isRunning: true));
   }
@@ -135,12 +137,12 @@ extension StopwatchBlocExtensions on StopwatchBloc {
     showModalBottomSheet(
       context: context,
       builder: (BuildContext builder) {
-        return Container(
+        return SizedBox(
           height: MediaQuery.of(context).copyWith().size.height / 3,
           child: CupertinoTimerPicker(
             mode: CupertinoTimerPickerMode.hms,
             onTimerDurationChanged: (Duration changedTimer) {
-              this.add(SetTime(changedTimer.inSeconds));
+              add(SetTime(changedTimer.inSeconds));
             },
           ),
         );

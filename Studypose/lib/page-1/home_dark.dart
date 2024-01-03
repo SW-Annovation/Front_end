@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/gestures.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'dart:ui';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:myapp/utils.dart';
 import 'stopwatch.dart';
 import 'subject.dart';
 import 'package:intl/intl.dart';
 
 class HomeDarkScreen extends StatefulWidget {
+  const HomeDarkScreen({super.key});
+
   @override
   _SceneState createState() => _SceneState();
 }
@@ -36,17 +35,17 @@ class _SceneState extends State<HomeDarkScreen> {
       ),
       child: BlocProvider(
         create: (context) => stopwatchBloc,
-        child: Container(
+        child: SizedBox(
           width: double.infinity,
           child: Container(
             // todolistGbB (2321:73)
             width: double.infinity,
-            height: 844*fem,
-            decoration: BoxDecoration (color: Color(0xff525252)),
+            height: 844 * fem,
+            decoration: BoxDecoration(color: Color(0xff525252)),
             child: Stack(
               children: [
                 Positioned(
-                  left: 137* fem,
+                  left: 137 * fem,
                   top: 261 * fem,
                   child: Align(
                     child: SizedBox(
@@ -72,8 +71,8 @@ class _SceneState extends State<HomeDarkScreen> {
                   ),
                 ),
                 Positioned(
-                  left: 110*fem,
-                  top: 331*fem,
+                  left: 110 * fem,
+                  top: 331 * fem,
                   child: Align(
                     child: BlocBuilder<StopwatchBloc, StopwatchState>(
                       builder: (context, state) {
@@ -82,10 +81,10 @@ class _SceneState extends State<HomeDarkScreen> {
                           textAlign: TextAlign.center,
                           style: SafeGoogleFont(
                             'Inter',
-                            fontSize: 30*ffem,
+                            fontSize: 30 * ffem,
                             fontWeight: FontWeight.w600,
-                            height: 0.6666666667*ffem/fem,
-                            letterSpacing: -0.5*fem,
+                            height: 0.6666666667 * ffem / fem,
+                            letterSpacing: -0.5 * fem,
                             color: Color(0xffffffff),
                           ),
                         );
@@ -95,29 +94,29 @@ class _SceneState extends State<HomeDarkScreen> {
                 ),
                 Positioned(
                   // group55Sxq (2320:57)
-                  left: 153*fem,
-                  top: 397*fem,
+                  left: 153 * fem,
+                  top: 397 * fem,
                   child: Container(
-                    width: 85*fem,
-                    height: 48*fem,
-                    decoration: BoxDecoration (
-                      borderRadius: BorderRadius.circular(10*fem),
+                    width: 85 * fem,
+                    height: 48 * fem,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(10 * fem),
                     ),
                     child: Container(
                       // group51nG1 (2320:58)
                       width: double.infinity,
                       height: double.infinity,
-                      decoration: BoxDecoration (
-                        borderRadius: BorderRadius.circular(10*fem),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(10 * fem),
                       ),
                       child: Center(
                         // rectangle321XjP (2320:59)
                         child: SizedBox(
                           width: double.infinity,
-                          height: 48*fem,
+                          height: 48 * fem,
                           child: Container(
-                            decoration: BoxDecoration (
-                              borderRadius: BorderRadius.circular(10*fem),
+                            decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(10 * fem),
                               color: Color(0xffd9d9d9),
                             ),
                           ),
@@ -128,21 +127,21 @@ class _SceneState extends State<HomeDarkScreen> {
                 ),
                 Positioned(
                   // 3xd (2320:60)
-                  left: 162.5*fem,
-                  top: 231*fem,
+                  left: 162.5 * fem,
+                  top: 231 * fem,
                   child: Align(
                     child: SizedBox(
-                      width: 65*fem,
-                      height: 20*fem,
+                      width: 65 * fem,
+                      height: 20 * fem,
                       child: Text(
                         '누적 시간',
                         textAlign: TextAlign.center,
-                        style: SafeGoogleFont (
+                        style: SafeGoogleFont(
                           'Inter',
-                          fontSize: 14*ffem,
+                          fontSize: 14 * ffem,
                           fontWeight: FontWeight.w500,
-                          height: 1.4285714286*ffem/fem,
-                          letterSpacing: -0.5*fem,
+                          height: 1.4285714286 * ffem / fem,
+                          letterSpacing: -0.5 * fem,
                           color: Color(0xffffffff),
                         ),
                       ),
@@ -151,21 +150,21 @@ class _SceneState extends State<HomeDarkScreen> {
                 ),
                 Positioned(
                   // YPb (2320:61)
-                  left: 171*fem,
-                  top: 303*fem,
+                  left: 171 * fem,
+                  top: 303 * fem,
                   child: Align(
                     child: SizedBox(
-                      width: 50*fem,
-                      height: 40*fem,
+                      width: 50 * fem,
+                      height: 40 * fem,
                       child: Text(
                         '타이머',
                         textAlign: TextAlign.center,
-                        style: SafeGoogleFont (
+                        style: SafeGoogleFont(
                           'Inter',
-                          fontSize: 14*ffem,
+                          fontSize: 14 * ffem,
                           fontWeight: FontWeight.w500,
-                          height: 1.4285714286*ffem/fem,
-                          letterSpacing: -0.5*fem,
+                          height: 1.4285714286 * ffem / fem,
+                          letterSpacing: -0.5 * fem,
                           color: Color(0xffffffff),
                         ),
                       ),
@@ -192,28 +191,27 @@ class _SceneState extends State<HomeDarkScreen> {
                     ),
                   ),
                 ),
-
                 Positioned(
                   // materialsymbolspause7b7 (2320:63)
-                  left: 181*fem,
-                  top: 416*fem,
-                  child: Container(
-                    width: 24*fem,
-                    height: 24*fem,
+                  left: 181 * fem,
+                  top: 416 * fem,
+                  child: SizedBox(
+                    width: 24 * fem,
+                    height: 24 * fem,
                   ),
                 ),
                 Positioned(
                   // vectoreb3 (2320:64)
-                  left: 183*fem,
-                  top: 408*fem,
+                  left: 183 * fem,
+                  top: 408 * fem,
                   child: Align(
                     child: SizedBox(
-                      width: 25*fem,
-                      height: 26*fem,
+                      width: 25 * fem,
+                      height: 26 * fem,
                       child: Image.asset(
                         'assets/page-1/images/vector-PoP.png',
-                        width: 25*fem,
-                        height: 26*fem,
+                        width: 25 * fem,
+                        height: 26 * fem,
                       ),
                     ),
                   ),
@@ -243,24 +241,24 @@ class _SceneState extends State<HomeDarkScreen> {
                 ),
                 Positioned(
                   // rectangle32967b (2320:72)
-                  left: 28*fem,
-                  top: 0*fem,
+                  left: 28 * fem,
+                  top: 0 * fem,
                   child: Align(
                     child: SizedBox(
-                      width: 396*fem,
-                      height: 844*fem,
+                      width: 396 * fem,
+                      height: 844 * fem,
                       child: Image.asset(
                         'assets/page-1/images/rectangle-329.png',
-                        width: 396*fem,
-                        height: 844*fem,
+                        width: 396 * fem,
+                        height: 844 * fem,
                       ),
                     ),
                   ),
                 ),
                 Positioned(
                   // rectangle328cKb (2320:54)
-                  left: 42*fem,
-                  top: 186*fem,
+                  left: 42 * fem,
+                  top: 186 * fem,
                   child: GestureDetector(
                     onTap: () {
                       if (stopwatchBloc.state.isRunning) {
@@ -271,31 +269,30 @@ class _SceneState extends State<HomeDarkScreen> {
                     },
                     child: Align(
                       child: SizedBox(
-                        width: 306*fem,
-                        height: 313*fem,
+                        width: 306 * fem,
+                        height: 313 * fem,
                         child: Container(
-                          decoration: BoxDecoration (
-                              borderRadius: BorderRadius.circular(150*fem),
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(150 * fem),
                               border: Border.all(
                                 color: Color(0xff737171),
                                 width: 3,
                               ),
-                              color: Colors.transparent
-                          ),
+                              color: Colors.transparent),
                         ),
                       ),
                     ),
                   ),
                 ),
                 Positioned(
-                  left: 110*fem,
-                  top: 107*fem,
+                  left: 110 * fem,
+                  top: 107 * fem,
                   child: GestureDetector(
                     onTap: () {
                       Subject.showSubjectPicker(
                         context,
                         subjects,
-                            (Subject selectedSubject) {
+                        (Subject selectedSubject) {
                           setState(() {
                             selectedSubjectName = selectedSubject.name;
                           });
@@ -304,17 +301,17 @@ class _SceneState extends State<HomeDarkScreen> {
                     },
                     child: Align(
                       child: SizedBox(
-                        width: 163*fem,
-                        height: 43*fem,
+                        width: 163 * fem,
+                        height: 43 * fem,
                         child: Container(
-                          decoration: BoxDecoration (
-                            borderRadius: BorderRadius.circular(20*fem),
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20 * fem),
                             color: Color(0x7fffffff),
                             boxShadow: [
                               BoxShadow(
                                 color: Color(0x66ffffff),
-                                offset: Offset(0*fem, 10*fem),
-                                blurRadius: 12*fem,
+                                offset: Offset(0 * fem, 10 * fem),
+                                blurRadius: 12 * fem,
                               ),
                             ],
                           ),
@@ -322,12 +319,12 @@ class _SceneState extends State<HomeDarkScreen> {
                             child: Text(
                               selectedSubjectName,
                               textAlign: TextAlign.center,
-                              style: SafeGoogleFont (
+                              style: SafeGoogleFont(
                                 'Inter',
-                                fontSize: 15*ffem,
+                                fontSize: 15 * ffem,
                                 fontWeight: FontWeight.w600,
-                                height: 1.3333333333*ffem/fem,
-                                letterSpacing: -0.5*fem,
+                                height: 1.3333333333 * ffem / fem,
+                                letterSpacing: -0.5 * fem,
                                 color: Color(0xffffffff),
                               ),
                             ),
@@ -338,31 +335,31 @@ class _SceneState extends State<HomeDarkScreen> {
                   ),
                 ),
                 Positioned(
-                  left: 156*fem,
-                  top: 556*fem,
-                  child:
-                  GestureDetector(
+                  left: 156 * fem,
+                  top: 556 * fem,
+                  child: GestureDetector(
                     onTap: () => stopwatchBloc.showTimePicker(context),
                     child: Container(
-                      padding: EdgeInsets.fromLTRB(21.58*fem, 23.75*fem, 21.58*fem, 23.75*fem),
-                      width: 70*fem,
-                      height: 70*fem,
-                      decoration: BoxDecoration (
+                      padding: EdgeInsets.fromLTRB(
+                          21.58 * fem, 23.75 * fem, 21.58 * fem, 23.75 * fem),
+                      width: 70 * fem,
+                      height: 70 * fem,
+                      decoration: BoxDecoration(
                         color: Color(0xffffffff),
-                        borderRadius: BorderRadius.circular(35*fem),
+                        borderRadius: BorderRadius.circular(35 * fem),
                         boxShadow: [
                           BoxShadow(
                             color: Color(0x26636363),
-                            offset: Offset(0*fem, 10*fem),
-                            blurRadius: 12*fem,
+                            offset: Offset(0 * fem, 10 * fem),
+                            blurRadius: 12 * fem,
                           ),
                         ],
                       ),
                       child: Center(
                         child: Image.asset(
                           'assets/page-1/images/edit.png',
-                          width: 40*fem,
-                          height: 30*fem,
+                          width: 40 * fem,
+                          height: 30 * fem,
                         ),
                       ),
                     ),
