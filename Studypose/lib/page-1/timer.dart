@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter_bloc/flutter_bloc.dart';
+// 아마 안 쓸 듯
 
 // 이벤트 정의
 abstract class TimerEvent {}

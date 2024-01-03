@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
+import 'package:myapp/page-1/datasubmit.dart';
+
 // 이벤트 정의
 abstract class StopwatchEvent {}
 
@@ -17,13 +19,24 @@ class SetTime extends StopwatchEvent {
   SetTime(this.seconds);
 }
 
+class UpdateSelectedSubject extends StopwatchEvent {
+  final String selectedSubjectName;
+  UpdateSelectedSubject(this.selectedSubjectName);
+}
+
 // 상태 정의
 class StopwatchState {
   final int seconds;
   final bool isRunning;
-  final int accumulatedSeconds; // 누적 시간을 위한 새 변수
+  final int accumulatedSeconds;
+  final String selectedSubjectName;
 
-  StopwatchState({required this.seconds, this.isRunning = false, this.accumulatedSeconds = 0});
+  StopwatchState({
+    required this.seconds,
+    this.isRunning = false,
+    this.accumulatedSeconds = 0,
+    this.selectedSubjectName="",
+  });
 
   String get formattedTime {
     return _formatTime(seconds);
@@ -40,11 +53,17 @@ class StopwatchState {
     return "${hour.toString().padLeft(2, '0')} : ${minute.toString().padLeft(2, '0')} : ${second.toString().padLeft(2, '0')}";
   }
 
-  StopwatchState copyWith({int? seconds, bool? isRunning, int? accumulatedSeconds}) {
+  StopwatchState copyWith({
+    int? seconds,
+    bool? isRunning,
+    int? accumulatedSeconds,
+    String? selectedSubjectName, // 추가
+  }) {
     return StopwatchState(
       seconds: seconds ?? this.seconds,
       isRunning: isRunning ?? this.isRunning,
       accumulatedSeconds: accumulatedSeconds ?? this.accumulatedSeconds,
+      selectedSubjectName: selectedSubjectName ?? this.selectedSubjectName, // 추가
     );
   }
 }
@@ -65,6 +84,8 @@ class StopwatchBloc extends Bloc<StopwatchEvent, StopwatchState> {
       _resetTimer();
     } else if (event is SetTime) {
       yield StopwatchState(seconds: event.seconds);
+    } else if (event is UpdateSelectedSubject) {
+      yield state.copyWith(selectedSubjectName: event.selectedSubjectName);
     }
   }
 
@@ -86,6 +107,14 @@ class StopwatchBloc extends Bloc<StopwatchEvent, StopwatchState> {
   void _pauseTimer() {
     _timer?.cancel();
     emit(state.copyWith(isRunning: false));
+
+    // TODO: URL 수정 필요
+    Duration accumulatedDuration = Duration(seconds: state.accumulatedSeconds);
+    submitTimeToServer(
+      'http://your-server-url.com',
+      state.selectedSubjectName,
+      accumulatedDuration,
+    );
   }
 
   void _resetTimer() {

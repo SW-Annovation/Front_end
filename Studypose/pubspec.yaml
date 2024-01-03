@@ -31,6 +31,7 @@ environment:
 # versions available, run `flutter pub outdated`.
 dependencies:
   flutter_bloc: ^7.0.0
+  intl: ^0.19.0
   flutter:
     sdk: flutter
 
@@ -221,6 +222,17 @@ flutter:
     - assets/page-1/images/outlined-home-fnZ.png
     - assets/page-1/images/line-1-Jqw.png
     - assets/page-1/images/group-92.png
+    - assets/page-1/images/edit.png
+    - assets/page-1/images/start.png
+    - assets/page-1/images/check.png
+    - assets/page-1/images/empty.png
+    - assets/page-1/images/material-symbols-download.png
+    - assets/page-1/images/material-symbols-share.png
+    - assets/page-1/images/mingcute-check-fill.png
+    - assets/page-1/images/mingcute-check-fill-STf.png
+    - assets/page-1/images/group-aN1.png
+    - assets/page-1/images/group-HMX.png
+    - assets/page-1/images/group-PgZ.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
